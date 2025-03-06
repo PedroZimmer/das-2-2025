@@ -31,3 +31,48 @@ A linguagem de programação te um limite de operações, se chegar a esse limit
 ##### Automating your enviroment:
 
 se a minha maquina crashar, tem que ter um detector que deu ruim/caiu a maquina, com isso a AWS reconstroi a maquina similar para conseguir suprir a demanda enquanto esta sendo feita a manutencao
+
+
+- #### 06/03
+
+##### Infraestrutura como codigo IAC
+
+Tratar seus recursos como descartaveis
+
+Automate deployment of new resources with identical configurations
+Stop resources that are not in use
+Test updates on new resources, and thne replace...
+
+##### Acomplamento
+
+Desenha a arquitetura com componentes independentes
+Consiga trocar componentes facilmente (Exemplo: HDMI, um dispositovo que conte hdi consegue rodar em varios outros que tambem possuam hdmi)
+Cria replicas do DB, coloca um ELB para mostrar qual DB vai ser usado para melhorar a performance
+O ELB tambem checa se a maquina do DB esta viva, antes de mandar a informcao, verifica se ela esta ativa.
+- ###### Para ter alta diponibilidade voce precisa ter redundancia.
+
+
+##### Desenhe servicos nao servidores
+
+- Quando possivel considere usar containers ou serverless
+- Message queues
+- Static WEB assests can be stores off server, such as on Amaon Sim Storage Service (Amazon S3)
+- User Authentication with AWS
+
+##### Escolha a melhor solucao de banco de dados
+
+Relacional ou Nao relacional
+
+O relacional tem um problema: Escalabilidade horinzontal:
+Tem um limite de replicas do banco original, diferente do Nosql, que foi feito para ser escalado horinzontalmente e nao verticalmente. Entao o relacional tem limite ja o nosql nao.
+
+NoSQL: muita performance
+
+##### Otimizacao de custo
+
+Na AWS, nao querem que voce gaste muito.
+
+#### Usando Caching
+
+Melhora a performance e custo
+
