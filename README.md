@@ -76,3 +76,96 @@ Na AWS, nao querem que voce gaste muito.
 
 Melhora a performance e custo
 
+## Securing Access
+#### Aula 10/03/2025
+
+### Modelo de Responsabilidade Compartilhada
+
+- Em sistemas **on-premise**, a responsabilidade é do usuário.
+- Na **nuvem**, a responsabilidade é compartilhada:
+  - AWS cuida da infraestrutura física (servidores, racks, energia, etc.).
+  - O usuário é responsável pela configuração e segurança de seus recursos.
+
+##### Exemplo:
+- Se um servidor foi invadido porque a porta 22 estava aberta e a senha era fraca, a culpa é do usuário.
+- Se a falha for de um software da AWS, a responsabilidade é da AWS.
+
+### Segurança no S3
+
+O S3 é um meio-termo entre SaaS e PaaS. Nele, a AWS é responsável por:
+- Rede
+- Firewall
+- Sistema Operacional
+
+##### Server-Side Encryption (SSE)
+
+Modelos de criptografia no S3:
+- **SSE-S3:** AWS gera e gerencia a chave.
+- **SSE-KMS:** O usuário gerencia a chave pelo Key Management Service (KMS).
+- **SSE-C:** O usuário fornece a chave de criptografia.
+
+Caso de ataque:
+- Hackers alteraram a configuração de um bucket para usar **SSE-C**, permitindo que apenas eles tivessem a chave de descriptografia.
+
+### Princípios para Aplicações Seguras
+
+- **Identidade e Acesso:** Use provedores como Keycloak para evitar armazenar senhas diretamente.
+- **Proteção de Dados:**
+  - Em trânsito: **SSL/TLS (HTTPS)**
+  - Em repouso: **Criptografia em disco (EBS, S3)**
+  - Em uso: **Criptografia da RAM (Intel Enclave, AMD SEV)**
+- **Camadas de Segurança:**
+  - Firewall e antivírus não são suficientes.
+  - Controle de acesso e monitoramento são essenciais.
+- **Rastreabilidade:**
+  - Registrar atividades dos usuários para auditoria.
+- **Automatização de Segurança:**
+  - Criar usuários manualmente leva a erros.
+  - Implementar boas práticas de segurança automatizadas.
+
+### Autenticação e Autorização
+
+- **Autenticação:** Verifica identidade.
+  - Exemplo: Login e senha, biometria, token físico.
+- **Autorização:** Define permissões.
+  - Exemplo: IAM Policy para limitar acessos na AWS.
+- **Princípio do Privilégio Mínimo:**
+  - Usuários só devem ter acesso ao que realmente precisam.
+
+---
+
+#### Aula 13/03/2025
+
+### Revisão da Aula Anterior
+- Modelo de responsabilidade compartilhada
+- Princípio do privilégio mínimo
+- Autenticação e autorização
+- Identity and Access Management (IAM)
+
+### Meios de Acesso à AWS
+- **Console Web**
+- **Acesso Programático (AWS CLI)**
+
+### Configuração de Acesso Programático
+- **IAM User** e **IAM Group**
+- **Access Key** e **Secret Key**
+- **Melhores práticas:**
+  - Habilitar **MFA**
+  - Definir **expiração da conta**
+
+### Usuário Root
+- Conta **master** da AWS, pode fazer tudo.
+- Deve ter **MFA habilitado**.
+- **Nunca usar no dia a dia**.
+
+### IAM Roles
+- Permitem assumir diferentes permissões temporariamente.
+- **Exemplo:** Funcionário muda de função temporariamente (como um cozinheiro assumindo o caixa).
+- **Vantagem:** Sessões expiram automaticamente, minimizando riscos.
+
+### Instance Profile
+- Associa credenciais diretamente a uma máquina virtual (EC2).
+- Evita armazenar **chaves de acesso** diretamente na aplicação.
+
+
+
