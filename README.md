@@ -168,4 +168,64 @@ Caso de ataque:
 - Evita armazenar **chaves de acesso** diretamente na aplicação.
 
 
+---
+
+#### Aula 17/03/2025
+
+### RBAC - Role Basic Access Control
+
+Polices gerenciáveis e não gerenciáveis
+
+- **Polices Gerenciáveis:**
+  - Criadas e mantidas pela AWS.
+  - Podem ser aplicadas a múltiplos usuários, grupos ou roles.
+
+- **Polices Não Gerenciáveis:**
+  - Criadas pelo usuário.
+  - Customizadas para atender necessidades específicas.
+  - Exemplo: Uma polic que permite acesso de leitura a um bucket S3 específico.
+
+### Princípios do RBAC
+
+- Dividir responsabilidades para minimizar riscos. 
+- Conceder apenas as permissões necessárias para realizar uma tarefa.
+- Reduz a superfície de ataque e o impacto de possíveis compromissos.
+- Registrar e monitorar atividades para detectar e responder a incidentes de segurança.
+
+### Implementação do RBAC na AWS
+
+1. **Definir Funções:**
+  - Identificar funções na organização (ex.: administrador, desenvolvedor).
+
+2. **Criar Grupos e Roles:**
+  - Criar grupos no IAM e associar roles específicas.
+
+3. **Atribuir Polices:**
+  - Aplicar polices gerenciáveis ou não gerenciáveis, seguindo o princípio do privilégio mínimo.
+
+4. **Revisar Regularmente:**
+  - Revisar e atualizar permissões periodicamente conforme necessário.
+
+---
+### IAM Policy estrutura de documento
+
+Uma política IAM é um documento JSON que define permissões. Estrutura básica:
+
+- **Version:** Data do formato da política.
+- **Statement:** Lista de permissões.
+  - **Effect:** Permitir ou negar acesso.
+  - **Action:** Ações permitidas ou negadas.
+  - **Resource:** Recursos aos quais a política se aplica.
+  - **Conditioon:** Define condições específicas para a aplicação da política.
+    - Exemplo: Permitir acesso apenas de um endereço IP específico.
+
+
+### Tipos de aramzenamneot me nuvem
+
+- Por blocos / "blocados" -> EBS elastic block storage
+  - SSD, HDD
+- File share -> FXs/EFS elastic fire system
+  - Um servidor onde todos se conectam nele, ele resolve conflitos tambem, ao varios usuarios tentarem modificar o mesmo arquivo.
+- De objeto -> s3
+  - Baseado em atributos e metadados
 
