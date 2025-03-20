@@ -229,3 +229,68 @@ Uma política IAM é um documento JSON que define permissões. Estrutura básica
 - De objeto -> s3
   - Baseado em atributos e metadados
 
+
+#### Aula 20/03/2025
+
+## Beneficios S3
+
+- Alta Performance
+- Durabilidade
+- Availability
+
+
+#### How customers use AWS S3
+- Spikes in demand
+- Static Site
+- Financial Analysis
+- Disaster recovery
+
+#### Object Storage Classes
+
+- forma como o s3 guarda a informacao
+  - define o preco 
+  - disponibildade do arquivo
+- Classes quentes
+  - Acesso imediato
+- Classes frias
+  - Precisam ser 'rehidratados'
+
+- general purpose
+  - S3 Standard
+    - Maior diponibildade
+    - Preco de download barato
+    - Mais caro para armazenar
+
+- Intelligent tiering
+  - S3 Intelligent-Tiering
+    - Ele monitora o comportamento do arquivo
+    - E guarda ele nos Glacier de acordo com a demanda dele
+
+
+- Infrequent Access
+  - S3 Standard-IA
+    - Mais caros para baixar
+    - mais barato para armazenar
+    - 3 copias
+    - 
+  - S3 One Zone-IA
+    - Mais barato para guardar
+    - Acesso infrequente
+    - Poucos acessos
+    - Faz somente uma copia do objeto
+    - Perde durabilidade
+- Archive (GElados)
+  - S3 Glacier Instant Retrieval
+    - Volta quase instantaneamente
+    - O mais caro dos Glacier
+    - 
+  - S3 Glacier Deep Archive
+    - O mais barato para guardar
+    - O mais caro para tirar
+    - Demora muito para retornar o arquivo 
+    - POde levar dias para reotrnar
+  - S3 Glacier Flexible Retrieval
+    - Ele volta o arquivo mais rapido
+    - Consequentemete mais caro
+    - Minutos para voltar
+  - S3 on Outposts
