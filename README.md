@@ -312,4 +312,30 @@ Uma política IAM é um documento JSON que define permissões. Estrutura básica
   - Redução de custos ao mover dados para classes de armazenamento mais baratas.
   - Gerenciamento automatizado, reduzindo a necessidade de intervenção manual.
 
+#### Amazon S3 Versioning
+
+- Permite manter múltiplas versões de um objeto no mesmo bucket.
+- Ajuda a proteger contra exclusões acidentais e substituições de dados.
+- Cada versão de um objeto recebe um identificador único.
+- Pode ser habilitado ou desabilitado em nível de bucket.
+- Benefícios:
+  - Recuperação de versões anteriores de objetos.
+  - Proteção contra exclusão acidental, pois objetos excluídos podem ser restaurados.
+- Considerações:
+  - Uma vez usado, da pra somente pausar ele.
+  - Aumenta o custo de armazenamento, pois todas as versões são mantidas.
+  - É recomendado combinar com regras de ciclo de vida para gerenciar versões antigas.
+
+#### CORS
+
+- É utilizado para controlar quais origens têm permissão para acessar recursos em um servidor.
+- No Amazon S3, o CORS é configurado para permitir que aplicações hospedadas em diferentes domínios acessem os objetos armazenados no bucket.
+- Cada regra pode especificar:
+  - Métodos HTTP permitidos, como GET, POST, PUT.
+  - Cabeçalhos que podem ser enviados pela origem.
+  - Cabeçalhos que podem ser expostos para a aplicação cliente.
+- Exemplo de uso: Permitir que um site hospedado em um domínio específico acesse imagens armazenadas em um bucket S3.
+
+
+
 

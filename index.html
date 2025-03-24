@@ -1,0 +1,10 @@
+<script>
+    void function(){
+        console.log("so vai...");
+        //gere uma chamada para o endpoint e imprima o objeto json em tela https://kadiscoveryday.s3.sa-east-1.amazonaws.com/data.json
+        fetch('https://kadiscoveryday.s3.sa-east-1.amazonaws.com/data.json')
+            .then(response => response.json())
+            .then(data => console.log(data));
+            
+    }();
+</script>
