@@ -294,3 +294,22 @@ Uma política IAM é um documento JSON que define permissões. Estrutura básica
     - Consequentemete mais caro
     - Minutos para voltar
   - S3 on Outposts
+  
+  <br>
+
+---
+
+### Aula 24/03/2025
+
+#### Amazon S3 Lifecycle
+
+- Regras de Ciclo de Vida: Permitem gerenciar automaticamente os objetos armazenados no S3 ao longo do tempo.
+- Transições de Classe de Armazenamento: Mover objetos entre classes de armazenamento com base em padrões de acesso.
+  - Exemplo: Após 30 dias, mover de S3 Standard para S3 Standard-IA.
+- Expiração de Objetos: Configurar para excluir automaticamente objetos que não são mais necessários.
+  - Exemplo: Excluir backups antigos após 90 dias.
+- Benefícios:
+  - Redução de custos ao mover dados para classes de armazenamento mais baratas.
+  - Gerenciamento automatizado, reduzindo a necessidade de intervenção manual.
+
+
