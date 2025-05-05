@@ -336,6 +336,48 @@ Uma política IAM é um documento JSON que define permissões. Estrutura básica
   - Cabeçalhos que podem ser expostos para a aplicação cliente.
 - Exemplo de uso: Permitir que um site hospedado em um domínio específico acesse imagens armazenadas em um bucket S3.
 
+### Aula 24/03/2025
 
+## Aula 05/05/2025
+## Amazon VPC
+### Introdução ao Amazon VPC
 
+O Amazon Virtual Private Cloud (VPC) permite que você provisione uma seção isolada da nuvem AWS onde pode lançar recursos da AWS em uma rede virtual que você define. Ele oferece controle total sobre o ambiente de rede, incluindo seleção de intervalos de IP, criação de sub-redes e configuração de tabelas de roteamento e gateways de rede.
 
+#### Componentes Principais do VPC
+
+1. **Sub-redes:**
+  - Dividem o VPC em segmentos menores.
+  - Podem ser públicas (acessíveis pela internet) ou privadas (restritas a uma rede interna).
+
+2. **Internet Gateway (IGW):**
+  - Permite que instâncias em sub-redes públicas se comuniquem com a internet.
+
+3. **NAT Gateway:**
+  - Permite que instâncias em sub-redes privadas acessem a internet sem serem diretamente acessíveis.
+
+4. **Tabelas de Roteamento:**
+  - Definem como o tráfego é roteado dentro do VPC e para fora dele.
+
+5. **Security Groups e Network ACLs:**
+  - Controlam o tráfego de entrada e saída para instâncias e sub-redes.
+
+#### Benefícios do Amazon VPC
+
+- **Isolamento:** Recursos são isolados em uma rede virtual privada.
+- **Segurança:** Controle granular sobre o tráfego de rede.
+- **Flexibilidade:** Personalização de configurações de rede para atender às necessidades específicas.
+- **Conectividade Híbrida:** Integração com redes locais usando VPN ou AWS Direct Connect.
+
+#### Casos de Uso
+
+- Hospedagem de aplicativos web em sub-redes públicas com bancos de dados em sub-redes privadas.
+- Configuração de ambientes híbridos conectando redes locais ao VPC.
+- Implementação de arquiteturas de microserviços com controle de tráfego entre serviços.
+
+#### Boas Práticas
+
+- Use múltiplas zonas de disponibilidade (AZs) para alta disponibilidade.
+- Configure sub-redes privadas para recursos sensíveis.
+- Habilite logs do VPC Flow para monitorar o tráfego de rede.
+- Utilize Security Groups e Network ACLs para reforçar a segurança.
