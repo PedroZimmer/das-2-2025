@@ -381,3 +381,142 @@ O Amazon Virtual Private Cloud (VPC) permite que você provisione uma seção is
 - Configure sub-redes privadas para recursos sensíveis.
 - Habilite logs do VPC Flow para monitorar o tráfego de rede.
 - Utilize Security Groups e Network ACLs para reforçar a segurança.
+
+#### Aula 05/05/2025
+
+### CIDR (Classless Inter-Domain Routing)
+
+- Define o intervalo de endereços IP disponíveis em um VPC.
+- Representado no formato `x.x.x.x/n`, onde `n` indica o número de bits da máscara de rede.
+  - Exemplo: `10.0.0.0/16` define um intervalo de 65.536 endereços IP.
+- Permite dividir o espaço de endereços em sub-redes menores.
+
+### Subnet Pública
+
+- Sub-rede configurada para permitir acesso direto à internet.
+- Requisitos:
+  - Associada a uma tabela de roteamento com um **Internet Gateway (IGW)**.
+  - Instâncias na sub-rede devem ter um **Elastic IP** ou **Public IP**.
+- Usada para hospedar recursos que precisam ser acessíveis publicamente, como servidores web.
+- Benefícios:
+  - Facilita a comunicação com a internet.
+  - Ideal para serviços que requerem alta disponibilidade pública.
+- Considerações:
+  - Reforçar a segurança com **Security Groups** e **Network ACLs**.
+
+
+#### Aula 12/05/2025
+
+### Laboratórios Canvas
+
+#### Guided Lab: Creating a Virtual Private Cloud
+#### Challenge Lab: Creating a VPC Networking Environment for the Café
+
+
+### Aula 15/05/2025
+
+#### Laboratórios Canvas
+
+- **Guided Lab:** Creating a Virtual Private Cloud
+  - Objetivo: Aprender a criar e configurar um VPC com sub-redes públicas e privadas, tabelas de roteamento e gateways.
+  - Passos:
+    1. Criar um VPC com um intervalo CIDR apropriado.
+    2. Configurar sub-redes públicas e privadas.
+    3. Associar tabelas de roteamento às sub-redes.
+    4. Configurar um Internet Gateway para a sub-rede pública.
+    5. Criar um NAT Gateway para permitir que a sub-rede privada acesse a internet.
+
+- **Challenge Lab:** Creating a VPC Networking Environment for the Café
+  - Objetivo: Implementar um ambiente de rede para um cenário de café, utilizando as melhores práticas de VPC.
+  - Passos:
+    1. Criar um VPC com múltiplas zonas de disponibilidade.
+    2. Configurar sub-redes públicas para servidores web e sub-redes privadas para bancos de dados.
+    3. Implementar regras de segurança com Security Groups e Network ACLs.
+    4. Configurar logs do VPC Flow para monitorar o tráfego de rede.
+    5. Testar a conectividade entre os recursos e validar a configuração.
+
+- **Resultados Esperados:**
+  - Compreensão prática de como criar e gerenciar um VPC.
+  - Habilidade de configurar ambientes de rede seguros e escaláveis na AWS.
+
+
+#### Aula 19/05/2025
+
+### VPC Peering
+
+- Permite conectar dois VPCs para que possam se comunicar diretamente, como se estivessem na mesma rede.
+- **Características:**
+  - Comunicação ponto a ponto entre VPCs.
+  - Pode ser configurado entre VPCs na mesma conta ou em contas diferentes.
+  - Não suporta transitividade (se A está conectado a B, e B a C, A não pode se comunicar com C).
+- **Casos de Uso:**
+  - Compartilhamento de recursos entre VPCs.
+  - Comunicação entre ambientes de produção e desenvolvimento.
+- **Boas Práticas:**
+  - Planejar intervalos CIDR para evitar sobreposição de endereços IP.
+  - Configurar regras de segurança nos Security Groups e Network ACLs.
+
+### AWS VPN Site-to-Site
+
+- Permite conectar uma rede local a um VPC usando uma conexão VPN segura.
+- **Características:**
+  - Usa o protocolo IPsec para criptografar o tráfego.
+  - Requer um Customer Gateway (CGW) na rede local e um Virtual Private Gateway (VGW) no VPC.
+- **Casos de Uso:**
+  - Extensão de redes locais para a nuvem.
+  - Comunicação segura entre data centers e AWS.
+- **Benefícios:**
+  - Custo mais baixo em comparação com conexões dedicadas.
+  - Configuração rápida e flexível.
+- **Considerações:**
+  - Latência pode variar dependendo da qualidade da conexão de internet.
+  - Recomendado para cargas de trabalho que não exigem alta largura de banda.
+
+---
+
+### AWS Direct Connect
+
+- Fornece uma conexão de rede dedicada entre uma rede local e a AWS.
+- **Características:**
+  - Conexão física com alta largura de banda e baixa latência.
+  - Pode ser combinada com VPN para maior segurança.
+- **Casos de Uso:**
+  - Transferência de grandes volumes de dados.
+  - Aplicações que exigem baixa latência e alta consistência.
+- **Benefícios:**
+  - Reduz custos de transferência de dados em comparação com conexões baseadas na internet.
+  - Maior confiabilidade e desempenho.
+- **Considerações:**
+  - Requer tempo e custo para instalação.
+    - Ideal para empresas com necessidades de conectividade de longo prazo.
+
+  #### Aula 26/05/2025
+
+  ### IAM Groups
+
+  - Permitem agrupar usuários com permissões semelhantes.
+  - Facilita a gestão de permissões em larga escala.
+  - Exemplo: Grupo "Desenvolvedores" com acesso a recursos de desenvolvimento.
+
+  ### Roles - AWS STS (Security Token Service)
+
+  - Roles permitem delegar permissões temporárias a usuários, aplicações ou serviços.
+  - AWS STS gera credenciais temporárias para acessar recursos.
+  - Casos de uso:
+    - Permitir que aplicações acessem recursos sem armazenar credenciais fixas.
+    - Usuários externos (como parceiros) acessando recursos de forma controlada.
+  - Benefícios:
+    - Reduz riscos de exposição de credenciais.
+    - Permissões podem ser limitadas em escopo e tempo.
+
+  ### AWS Cognito
+
+  - Serviço gerenciado para autenticação, autorização e gerenciamento de usuários.
+  - Permite adicionar login social (Google, Facebook, etc.) e login corporativo (SAML, OIDC).
+  - Gerencia identidades de usuários e fornece tokens de acesso para aplicações.
+  - Integração fácil com aplicações web e mobile.
+  - Recursos:
+    - Pools de usuários (User Pools) para autenticação.
+    - Pools de identidades (Identity Pools) para acesso federado a recursos AWS.
+  - Segurança:
+    - Suporte a MFA, políticas de senha e monitoramento de atividades.
