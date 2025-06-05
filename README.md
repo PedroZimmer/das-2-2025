@@ -520,3 +520,20 @@ O Amazon Virtual Private Cloud (VPC) permite que você provisione uma seção is
     - Pools de identidades (Identity Pools) para acesso federado a recursos AWS.
   - Segurança:
     - Suporte a MFA, políticas de senha e monitoramento de atividades.
+
+### Aula 29/05/2025
+
+#### Criptografia Simétrica
+
+- Utiliza a mesma chave para criptografar e descriptografar dados.
+- É rápida e eficiente para grandes volumes de dados.
+- Exemplo de algoritmos: AES, DES.
+- Desafio principal: distribuição segura da chave entre as partes.
+
+#### Criptografia Assimétrica
+
+- Utiliza um par de chaves: uma pública e uma privada.
+- A chave pública criptografa os dados e apenas a chave privada correspondente pode descriptografar.
+- Exemplo de algoritmos: RSA, ECC.
+- Usada para troca segura de chaves, autenticação e assinatura digital.
+- Mais lenta que a simétrica, geralmente usada em conjunto com ela para garantir segurança e desempenho.
