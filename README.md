@@ -537,3 +537,79 @@ O Amazon Virtual Private Cloud (VPC) permite que você provisione uma seção is
 - Exemplo de algoritmos: RSA, ECC.
 - Usada para troca segura de chaves, autenticação e assinatura digital.
 - Mais lenta que a simétrica, geralmente usada em conjunto com ela para garantir segurança e desempenho.
+
+
+### Aula 16/06/2025
+
+#### Load Balancer
+
+- Distribui automaticamente o tráfego de entrada entre múltiplos destinos, como instâncias EC2, containers ou endereços IP.
+- **Tipos de Load Balancers na AWS:**
+  - **Application Load Balancer (ALB):** Camada 7 (HTTP/HTTPS), ideal para aplicações web.
+  - **Network Load Balancer (NLB):** Camada 4 (TCP/UDP), alta performance e baixa latência.
+  - **Gateway Load Balancer (GWLB):** Para appliances virtuais de segurança.
+  - **Classic Load Balancer (CLB):** Legado, suporta tanto camada 4 quanto 7.
+
+- **Benefícios:**
+  - Alta disponibilidade através de distribuição de carga.
+  - Detecção automática de instâncias não saudáveis (health checks).
+  - Escalabilidade automática baseada na demanda.
+  - Integração com Auto Scaling Groups.
+
+- **Configurações Importantes:**
+  - Health checks para monitorar status das instâncias.
+  - Target Groups para agrupar destinos.
+  - Listeners para definir portas e protocolos.
+  - SSL/TLS termination para criptografia.
+
+#### DNS (Domain Name System)
+
+- Sistema que traduz nomes de domínio legíveis por humanos em endereços IP.
+- **Amazon Route 53:**
+  - Serviço DNS gerenciado da AWS.
+  - Alta disponibilidade e escalabilidade global.
+  - Suporte a diferentes tipos de registros (A, AAAA, CNAME, MX, etc.).
+
+- **Políticas de Roteamento:**
+  - **Simple:** Roteamento básico para um único recurso.
+  - **Weighted:** Distribui tráfego com base em pesos atribuídos.
+  - **Latency-based:** Roteia para o recurso com menor latência.
+  - **Failover:** Roteamento ativo-passivo para alta disponibilidade.
+  - **Geolocation:** Roteamento baseado na localização do usuário.
+  - **Geoproximity:** Roteamento baseado na proximidade geográfica.
+
+### Aula 23/06/2025
+
+#### Infraestrutura como Código (IaC)
+
+- Prática de gerenciar e provisionar infraestrutura através de código ao invés de processos manuais.
+- **Vantagens:**
+  - **Consistência:** Ambientes idênticos podem ser criados repetidamente.
+  - **Versionamento:** Mudanças na infraestrutura podem ser rastreadas e versionadas.
+  - **Automação:** Reduz erros humanos e acelera deployments.
+  - **Documentação:** O código serve como documentação da infraestrutura.
+
+- **Ferramentas AWS para IaC:**
+  - **AWS CloudFormation:**
+    - Serviço nativo para definir infraestrutura usando templates JSON/YAML.
+    - Gerencia dependências entre recursos automaticamente.
+    - Rollback automático em caso de falhas.
+    - Stacks para organizar recursos relacionados.
+
+  - **AWS CDK (Cloud Development Kit):**
+    - Define infraestrutura usando linguagens de programação familiares.
+    - Suporte para TypeScript, Python, Java, C#, Go.
+    - Compila para templates CloudFormation.
+    - Maior flexibilidade para lógica complexa.
+
+- **Boas Práticas:**
+  - Usar controle de versão (Git) para templates.
+  - Implementar testes automatizados para templates.
+  - Separar configurações por ambiente (dev, staging, prod).
+  - Utilizar parâmetros e outputs para flexibilidade.
+  - Implementar políticas de segurança no código.
+
+- **Conceitos Importantes:**
+  - **Immutable Infrastructure:** Substituir ao invés de modificar recursos.
+  - **GitOps:** Usar Git como fonte da verdade para estado da infraestrutura.
+  - **Drift Detection:** Identificar diferenças entre estado desejado e atual.
