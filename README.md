@@ -613,3 +613,14 @@ O Amazon Virtual Private Cloud (VPC) permite que você provisione uma seção is
   - **Immutable Infrastructure:** Substituir ao invés de modificar recursos.
   - **GitOps:** Usar Git como fonte da verdade para estado da infraestrutura.
   - **Drift Detection:** Identificar diferenças entre estado desejado e atual.
+
+#### AUla 26/06/2025
+
+  ### Como Reduzir Acoplamento das Aplicações
+
+  - **Separar responsabilidades:** Divida o sistema em modulos ou serviços com funçoes bem definidas
+  - **Interfaces bem definidas:** Use API ou contratos claros para comunicação entre componentes.
+  - **Injecao de dependencia:** Permite trocar implementações sem alterar o código principal.
+  - **Mensageria/Filas:** Use filas para desacoplar produtores e consumidores de dados.
+  - **Evite dependencias diretas:** Prefira abstrações doq chamadas diretas entre modulos.
+  - **Documentacao:** Mantenha contratos e integrações bem documentados para facilitar mudanças.
